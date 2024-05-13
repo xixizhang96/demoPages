@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>juejin Demo</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Commissioner:wght@600&family=Inter:wght@400;800&family=Cabin&family=Raleway:wght@400;700&family=Squada+One&family=Do+Hyeon&family=League+Spartan:wght@300;400;500;600;700&family=Raleway:ital,wght@0,400;0,700;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./css/iconfont/iconfont.css">
+	<link rel="stylesheet" href="./css/juejin-css-common.css">
+	<link rel="stylesheet" href="./css/juejin-css1.css">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<!-- bubbleCursor -->
+	<script src="./js/bubbleCursor.js"></script>
+	<style>
+		body {
+			background-color: hsl(220deg 100% 80%);
+		}
+
+		.black-box.box-list-item {
+			/* 太灰 */
+			/* --shadow-color: hsl(0deg 0% 0% / 0.25); */
+			--shadow-color: hsl(0deg 0% 0% / 0.5);
+		}
+
+		.darker-box.box-list-item {
+			/* 太亮 */
+			--shadow-color: hsl(220deg 100% 55%);
+		}
+
+		.goldilocks-box.shadow-box {
+			/* 正好 */
+			--shadow-color: hsl(220deg 60% 50%);
+		}
+
+		.shadow-box {
+			filter: drop-shadow(1px 2px 8px var(--shadow-color));
+		}
+	</style>
+</head>
+
+<body style="padding-bottom: 800px;">
+	<main class="demo1-main">
+		<h2>CSS鼠标悬停边框动画</h2>
+		<p><a href="https://www.hereitis.cn/soundCodeView/" target="_blank">https://www.hereitis.cn/soundCodeView/</a>
+		</p>
+		<div class="css-box img-border">
+			<img src="./images/1.jpg" alt="two old cars in front of a garage">
+			<img src="./images/2.jpg" alt="a very old volkswagen van" class="alt"
+				style="--g: 20px;--b:5px;--s: 80px;--c:#6A4A3C;">
+		</div>
+
+		<h2>SVG轨道循环动画</h2>
+		<p><a href="https://www.hereitis.cn/soundCodeView/" target="_blank">https://www.hereitis.cn/soundCodeView/</a>
+		</p>
+
+		<h2>环形文字动画特效</h2>
+		<p><a href="https://www.hereitis.cn/soundCodeView/" target="_blank">https://www.hereitis.cn/soundCodeView/</a>
+		</p>
+		<div class="css-box ring-text">
+			helloworldhelloworld
+			<script>
+				// 要操作的元素
+				const circle = document.querySelector('.ring-text');
+				const text = circle.innerText;
+				// 先清空原有文本
+				circle.innerText = '';
+
+				for (let i = 0; i < text.length; i++) {
+					// 循环文本，取出单字
+					let letter = text[i];
+					// 创建span元素，并把单字赋给span
+					let span = document.createElement('span');
+					span.innerText = letter;
+					// 计算每一个字的旋转角度
+					let r = (360 / text.length) * i;
+					// 设置span的旋转角度
+					span.style.transform = 'rotate(' + r + 'deg)';
+					// 追加span
+					circle.appendChild(span);
+				}
+			</script>
+		</div>
+
+		<h2>3D分层图像悬停效果</h2>
+		<p><a href="https://www.hereitis.cn/soundCodeView/" target="_blank">https://www.hereitis.cn/soundCodeView/</a>
+		</p>
+
+		<h2>妙用 CSS counters 实现逐层缩进</h2>
+		<p><a href="https://juejin.cn/post/7315850963343671335#heading-2"
+				target="_blank">https://juejin.cn/post/7315850963343671335#heading-2</a></p>
+		<div class="css-div">
+			<ul class="counters-list">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="tree" id="tree"></div>
+			<script>
+				const treeData = [{
+					"id": 2,
+					"name": "项目1",
+					"parentId": 1,
+					"fileCount": 14,
+					"children": [{
+						"id": 8,
+						"name": "文件夹",
+						"parentId": 2,
+						"fileCount": 12,
+						"children": [{
+							"id": 137,
+							"name": "sdd",
+							"parentId": 8,
+							"fileCount": 0
+						}]
+					},
+					{
+						"id": 221,
+						"name": "chrome test",
+						"parentId": 2,
+						"fileCount": 2
+					}]
+				},
+				{
+					"id": 52,
+					"name": "项目2",
+					"parentId": 1,
+					"fileCount": 10,
+					"children": [{
+						"id": 54,
+						"name": "文件夹2-1",
+						"parentId": 52,
+						"fileCount": 10,
+						"children": [{
+							"id": 55,
+							"name": "文件夹2-1-1",
+							"parentId": 54,
+							"fileCount": 0,
+							"children": [{
+								"id": 56,
+								"name": "文件夹2-1-1-1",
+								"parentId": 55,
+								"fileCount": 0,
+								"children": [{
+									"id": 57,
+									"name": "文件夹2-1-1-1-1",
+									"parentId": 56,
+									"fileCount": 0,
+									"children": [{
+										"id": 58,
+										"name": "文件夹2-1-1-1-1-1",
+										"parentId": 57,
+										"fileCount": 0
+									}]
+								}]
+							}]
+						}]
+					}]
+				},
+				{
+					"id": 53,
+					"name": "文件夹1",
+					"parentId": 1,
+					"fileCount": 12,
+					"children": [{
+						"id": 80,
+						"name": "文件夹",
+						"parentId": 53,
+						"fileCount": 11
+					},
+					{
+						"id": 224,
+						"name": "文件夹2",
+						"parentId": 53,
+						"fileCount": 0
+					}]
+				},
+				{
+
+					"id": 69,
+					"name": "项目3",
+					"parentId": 1,
+					"fileCount": 55,
+					"children": [{
+						"id": 70,
+						"name": "文件夹1",
+						"parentId": 69,
+						"fileCount": 12,
+						"children": [{
+							"id": 4,
+							"name": "1",
+							"parentId": 70,
+							"fileCount": 3,
+							"children": [{
+								"id": 51,
+								"name": "文件夹2",
+								"parentId": 4,
+								"fileCount": 1
+							}]
+						}]
+					},
+					{
+						"id": 91,
+						"name": "文件夹",
+						"parentId": 69,
+						"fileCount": 10
+					},
+					{
+						"id": 102,
+						"name": "文件夹",
+						"parentId": 69,
+						"fileCount": 10
+					},
+					{
+						"id": 113,
+						"name": "文件夹",
+						"parentId": 69,
+						"fileCount": 10
+					},
+					{
+						"id": 121,
+						"name": "文件夹的副本",
+						"parentId": 69,
+						"fileCount": 10
+					},
+					{
+						"id": 136,
+						"name": "点点点",
+						"parentId": 69,
+						"fileCount": 0
+					},
+					{
+
+						"id": 140,
+						"name": "hewei",
+						"parentId": 69,
+						"fileCount": 3,
+						"children": [{
+							"id": 142,
+							"name": "hewei02",
+							"parentId": 140,
+							"fileCount": 1
+						}]
+					}]
+				}];
+
+				function gen_tree(childs) {
+					var html = ''
+					childs.forEach(el => {
+						html += `
+						<details>
+							<summary>
+								<span class="tree-item" title="${el.name}" data-id="${el.id}" >${el.name}</span>
+							</summary>`
+						if (el.children && el.children.length) { html += gen_tree(el.children); }
+						html +=
+							`</details>`
+					})
+					return html;
+				}
+				// console.log(gen_tree(treeData))
+				document.getElementById("tree").innerHTML = gen_tree(treeData);
+			</script>
+		</div>
+
+		<h2>奇葩进度条</h2>
+		<p><a href="https://juejin.cn/post/7244172094547492923"
+				target="_blank">https://juejin.cn/post/7244172094547492923</a></p>
+		<p><a href="https://blog.csdn.net/tianjian4592/article/details/44538605"
+				target="_blank">https://blog.csdn.net/tianjian4592/article/details/44538605</a></p>
+		<div class="css-box progress">
+			<div class="circle-progress">
+				<svg id="progress-circle" width="200" height="200">
+					<circle r="90" cx="100" cy="100" stroke-width="21" fill="transparent" />
+				</svg>
+				<div class="circle-mask"></div>
+			</div>
+			<div class="rectangle-progress">
+				<div class="inverted">
+					<div class="inverted-item">888w/12</div>
+					<div class="inverted-item">100%/10s</div>
+				</div>
+			</div>
+			<script>
+				const circle1 = document.querySelector('#progress-circle circle');
+				const radius = circle1.r.baseVal.value;
+				const circumference = radius * 2 * Math.PI;
+
+				function setProgress(percent) {
+					const progress = circumference - (percent / 100) * circumference;
+					circle1.style.strokeDashoffset = -progress;
+				}
+
+				let prog = 80;
+				let val = 100 - prog;
+				setProgress(val); //设置初始进度
+
+				// function circleInit(percent) {
+				// 	if (!percent || !document) return
+				// 	// const circle2 = document.querySelector(`.circle-container .progress-circle-${props.k} circle`)  as SVGCircleElement;
+				// 	const circle2 = document.querySelector(`.circle-container .progress-circle-${props.k} circle`);
+				// 	if (!circle2) return
+				// 	const radius = circle2.r.baseVal.value
+				// 	const outerRadius = circle2.cx.baseVal.value
+
+				// 	const innerCircumference = radius * 2 * Math.PI
+				// 	const outerCircumference = outerRadius * 2 * Math.PI
+
+				// 	/**
+				// 	*设置百分比
+				// 	* @param percent 偏移白色环状的量
+				// 	*/
+				// 	function setProgress(percent) {
+				// 		const progress = (percent / 100) * innerCircumference
+				// 		const userAgent = navigator.userAgent
+				// 		if (userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') < 0) {
+				// 			circle2.style.strokeDashoffset = (outerCircumference + (outerCircumference - progress)) + ''
+				// 		} else {
+				// 			circle2.style.strokeDashoffset = -(progress) + ''
+				// 		}
+				// 	}
+				// 	const whitePercent = percent;
+				// 	setProgress(whitePercent);
+				// }
+
+				// circleInit(40)
+
+			</script>
+		</div>
+
+		<h2>文字效果2</h2>
+		<p><a href="https://juejin.cn/post/7317957468960849935" target="_blank"
+				title="闪闪发光的标题">https://juejin.cn/post/7317957468960849935</a></p>
+		<p> <a href="https://juejin.cn/post/7290410631654899753" target="_blank"
+				title="文字悬停分割效果">https://juejin.cn/post/7290410631654899753</a></p>
+		<p><a href="https://juejin.cn/post/7288963210953850936" target="_blank"
+				title="「文本灯光」Text文本上的锥形探照灯动画效果">https://juejin.cn/post/7288963210953850936</a>
+		</p>
+		<p><a href="https://github.com/vnyoon/web-magic/tree/master/15_text-light-animation" target="_blank"
+				title="「文本灯光」Text文本上的锥形探照灯动画效果">https://github.com/vnyoon/web-magic/tree/master/15_text-light-animation</a>
+		</p>
+		<p><a href="https://juejin.cn/post/7238148905095905340" target="_blank"
+				title="使用 font-variation 让文字起飞">https://juejin.cn/post/7238148905095905340</a></p>
+		<div class="css-box text-wrap">
+			<div class="text-box">
+				<div class="text-item">
+					<div class="text-effect lighting-el">
+						<h3>发光的标题--自发光</h3>
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="text-effect streamer">
+						<svg>
+							<defs>
+								<!--线性渐变，0% ,100% 时设置透明度为0-->
+								<linearGradient id="line-gradient" x1="0%" y1="40%" x2="100%" y2="60%">
+									<stop offset="0%" stop-color="#A9A7A7" stop-opacity="0" />
+									<stop offset="50%" stop-color="#A9A7A7" stop-opacity="0.8" />
+									<stop offset="100%" stop-color="#A9A7A7" stop-opacity="0" />
+								</linearGradient>
+								<!--流光背景动画。用pattern定义一个背景，width和height指定的是图像范围，而不是整体进行缩放-->
+								<pattern id="light-bg" width="100%" height="100%">
+									<!--宽、高要能覆盖文字-->
+									<rect x="0" y="0" width="200" height="100" fill="#fff"></rect>
+									<rect transform="skewX(-20)" x="0" y="0" width="50" height="120"
+										fill="url(#line-gradient)">
+										<!--指定x属性，一直重复向右移动即可-->
+										<animate attributeName="x" from="-20" to="240" begin="0s" dur="2s"
+											repeatCount="indefinite" />
+									</rect>
+								</pattern>
+							</defs>
+							<g transform="translate(0,-20)">
+								<!--fill属性应用 pattern定义的背景动画-->
+								<text fill="url(#light-bg)" x="0" y="50"
+									style="font-size: 30px;font-weight: 700;font-family: 'KaiTi';">文字流光</text>
+							</g>
+						</svg>
+					</div>
+				</div>
+				<div class="text-item text-slide">
+					<h3 data-text="文字滑动效果">文字滑动效果</h3>
+					<!-- <p data-text="Anyone">Anyone</p> -->
+				</div>
+				<div class="text-item text-cutup">
+					<h3>
+						BELIEVE
+						<span>BELIEVE</span>
+						<span>BELIEVE</span>
+						<span>in yourself</span>
+					</h3>
+				</div>
+				<div class="text-item">
+					<div class="searchlight">
+						Lighting
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="variation-font">
+						<a href="https://codepen.io/typeforward/pen/abRpoxV" target="_blank">Variable Fonts</a>
+					</div>
+				</div>
+				<div class="text-item">
+					<a href="https://github.com/JetTsang/Font_End/blob/main/CSS/cssdemo/01_svg%E6%96%87%E5%AD%97%E5%8A%A8%E7%94%BB.html"
+						target="_blank">svg文字动画</a>
+					<div class="svg-loading">
+						<svg width="100%" height="100%">
+							<text x="5%" y="55%">Loading</text>
+						</svg>
+					</div>
+				</div>
+				<div class="text-item">
+					<a href="https://codepen.io/ecemgo/pen/QWzeQOK" target="_blank">背景文字动画</a>
+					<div class="background-text">Edinburgh</div>
+				</div>
+				<div class="text-item">
+					<a href="https://codepen.io/airen/pen/RwOBado" target="_blank">Animated gradient - HTML and SVG
+						mask</a>
+					<div class="mask-background">
+						<div class="gradient-bg overlay"></div>
+						<h6 class="mask-title gradient-text gradient-bg">Hello, CSS! CSS is awesome!</h6>
+						<div class="mask-w"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2>纯CSS动态渐变文本特效</h2>
+		<p><a href="https://juejin.cn/post/7302255815078887439"
+				target="_blank">https://juejin.cn/post/7302255815078887439</a>
+		</p>
+		<div class="css-box">
+			<div class="aurora-text">
+				CSS文本渐变特效
+				<div class="aurora">
+					<div class="aurora__item"></div>
+					<div class="aurora__item"></div>
+					<div class="aurora__item"></div>
+					<div class="aurora__item"></div>
+				</div>
+			</div>
+		</div>
+
+		<h2>文字交融效果</h2>
+		<p><a href="https://juejin.cn/post/7245316146336563261"
+				target="_blank">https://juejin.cn/post/7245316146336563261</a></p>
+		<div class="css-box text-blend">
+			<h3 class="blend-word">Duyi Education</h3>
+		</div>
+
+		<h2>svg滤镜-实现多种玻璃图案效果</h2>
+		<p><a href="https://juejin.cn/post/7299671709475766324"
+				target="_blank">https://juejin.cn/post/7299671709475766324</a></p>
+
+		<h2>纯CSS实现魔法渐变边框卡片</h2>
+		<p><a href="https://codepen.io/gayane-gasparyan/pen/jOmaBQK"
+				target="_blank">https://codepen.io/gayane-gasparyan/pen/jOmaBQK</a>
+		</p>
+		<p><a href="https://juejin.cn/post/7300551340567674931#heading-5"
+				target="_blank">https://juejin.cn/post/7300551340567674931#heading-5</a></p>
+
+		<h2>圆形虚线边框</h2>
+		<p><a href="https://juejin.cn/post/7233052510553522213#heading-2"
+				target="_blank">https://juejin.cn/post/7233052510553522213#heading-2</a></p>
+		<p><a href="https://codepen.io/t_afif/pen/KKvjjZN" target="_blank">https://codepen.io/t_afif/pen/KKvjjZN</a></p>
+
+		<h2>悬停效果</h2>
+		<p><a href="https://juejin.cn/post/7293788137661792290"
+				target="_blank">https://juejin.cn/post/7293788137661792290</a></p>
+		<div class="css-box hover-border">
+			<h3>Box</h3>
+		</div>
+
+		<h2>图片添加揭露动画效果</h2>
+		<p><a href="https://juejin.cn/post/7246935481615925303"
+				target="_blank">https://juejin.cn/post/7246935481615925303</a></p>
+		<div class="css-box img-expose">
+			<img class="left" src="./images/1.jpg" alt="" style="--bg: #542437; --o: right;">
+			<img class="right" src="./images/2.jpg" alt="" style="--bg: #8A9B0F; --o: left;">
+			<img class="top" src="./images/1.jpg" alt="" style="--bg: #E94E77; --o: bottom;">
+			<img class="bottom" src="./images/2.jpg" alt="" style="--bg: #7A6A53; --o: top;">
+			<img class="center" src="./images/1.jpg" alt="" style="--bg: #88C425; --o: center;">
+			<img class="vertical" src="./images/2.jpg" alt="" style="--bg: #F07818; --o: top;">
+			<img class="horizontal" src="./images/1.jpg" alt="" style="--bg: #AB3E5B; --o: top;">
+			<img class="random" src="./images/2.jpg" alt="" style="--bg: #0E2430; --o: top left;">
+		</div>
+
+		<h2>CSS实现auto高度的过渡动画</h2>
+		<p><a href="https://juejin.cn/post/7317994541712949282"
+				target="_blank">https://juejin.cn/post/7317994541712949282</a></p>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/height-transition"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/height-transition</a></p>
+		<p><a href="https://juejin.cn/post/7249536369474486329" target="_blank">不定高度展开收起动画</a></p>
+		<div class="css-box">
+			<div id="cssAutoHeight" class="auto-height">
+				<h4>用 grid 实现</h4>
+				<div id="autoHeightContent" class="auto-content">
+					<div>
+						<p>Hello, World!</p>
+						<p>Hello, World!</p>
+						<p>Hello, World!</p>
+						<p>Hello, World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="trigger">
+				<h3>用 max-height 实现</h3>
+				Hover me to see a height transition.
+				<div class="trigger-el">Additional content</div>
+			</div>
+			<script>
+				const el = document.querySelector('.trigger-el'),
+					height = el.scrollHeight;
+				el.style.setProperty('--max-height--', height + 'px');
+			</script>
+		</div>
+		<h3>不定高度展开收起动画</h3>
+		<div class="css-box">
+			<div class="auto-altitude">
+				<h4 class="auto">auto height</h4>
+				<div class="altitude-container">
+					<p>1</p>
+					<p>2</p>
+					<p>3</p>
+					<p>4</p>
+				</div>
+			</div>
+			<div class="auto-altitude">
+				<h4 class="max">max-height</h4>
+				<div class="altitude-container">
+					<p>1</p>
+					<p>2</p>
+					<p>3</p>
+					<p>4</p>
+				</div>
+			</div>
+			<div class="auto-altitude">
+				<h4 class="path">clip-path</h4>
+				<div class="clip-path">
+					<section class="altitude-section">
+						<p>1</p>
+						<p>2</p>
+						<p>3</p>
+						<p>4</p>
+					</section>
+				</div>
+			</div>
+			<div class="auto-altitude">
+				<button id="click-button">展开收起</button>
+				<section id="trigger-section" class="altitude-section" style="display: none;">
+					<p>1</p>
+					<p>2</p>
+					<p>3</p>
+					<p>4</p>
+					<p>5</p>
+				</section>
+				<script>
+					let ref = document.getElementById('trigger-section');
+					let offsetHeight = 0;
+					let stepHeight = 0;
+					// 展开定时器
+					let expandTimerRef = null;
+					// 收起定时器
+					let collapseTimerRef = null;
+
+					const handleClick = () => {
+						console.log(111111111)
+						if (expandTimerRef) {
+							clearInterval(expandTimerRef);
+							expandTimerRef = null;
+
+							let height = ref.offsetHeight;
+
+							collapseTimerRef = setInterval(() => {
+								height -= stepHeight;
+								if (height <= 0) {
+									clearInterval(collapseTimerRef);
+									// ref.style = null;
+									offsetHeight = 0;
+									ref.style.height = null;
+									ref.style.display = 'none';
+									offsetHeight = 0;
+									return;
+								}
+								ref.style.height = height + 'px';
+							}, 10);
+						} else {
+							clearInterval(collapseTimerRef);
+							collapseTimerRef = null;
+							// 获取元素总高度
+							ref.style.display = 'block';
+							let height = 0;
+							// debugger
+							if (!offsetHeight) {
+								offsetHeight = ref.offsetHeight;
+							} else {
+								height = ref.offsetHeight;
+							}
+							stepHeight = offsetHeight / 30;
+							ref.style.height = height + 'px';
+							console.log(ref.offsetHeight, height, stepHeight)
+
+							expandTimerRef = setInterval(() => {
+								height += stepHeight;
+								if (height >= offsetHeight) {
+									clearInterval(expandTimerRef);
+									expandTimerRef = 1;
+									ref.style = null;
+									return;
+								}
+								ref.style.height = height + 'px';
+							}, 10);
+						}
+					};
+					const button = document.getElementById('click-button');
+					console.log(button, ref)
+					button.addEventListener('click', handleClick, false)
+				</script>
+			</div>
+		</div>
+
+		<h2>导航引导</h2>
+		<p><a href="https://juejin.cn/post/7228978346502258746"
+				target="_blank">https://juejin.cn/post/7228978346502258746</a></p>
+		<p><a href="https://code.juejin.cn/pen/7228437360743530556"
+				target="_blank">https://code.juejin.cn/pen/7228437360743530556</a></p>
+
+		<h2>Grid 布局</h2>
+		<p><a href="https://juejin.cn/post/7310423470546354239"
+				target="_blank">https://juejin.cn/post/7310423470546354239</a></p>
+		<p><a href="https://lio-mengxiang.github.io/mx-design/#/components/gridLayout"
+				target="_blank">https://lio-mengxiang.github.io/mx-design/#/components/gridLayout</a></p>
+
+		<h2>正在加载中效果</h2>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/dot-loading"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/dot-loading</a></p>
+		<div class="css-box dot-loading">正在加载中<dot>...</dot>
+		</div>
+
+		<h2>棋盘背景图案</h2>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/checkerboard-pattern"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/checkerboard-pattern</a></p>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/polka-dot-pattern"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/polka-dot-pattern</a></p>
+		<div class="css-box ">
+			<div class="checkerboard "></div>
+			<div class="polka-dot"></div>
+		</div>
+
+		<h2>自定义文本选中</h2>
+		<a href="https://eveningwater.github.io/code-segment/#/codes/css/custom-text-selection"
+			target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/custom-text-selection</a>
+		<style>
+			::selection {
+				background-color: rgba(0, 0, 0, 0.85);
+				background-color: #f2f3f4;
+			}
+
+			.custom-text-selection::selection {
+				color: rgba(255, 255, 255, 0.85);
+				background-color: #2396ef;
+				background: red;
+			}
+		</style>
+		<p class="custom-text-selection">Select some of this text</p>
+
+		<h2>漂亮的文本下划线</h2>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/pretty-text-underline"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/pretty-text-underline</a></p>
+		<div class="pretty-text-underline">
+			Pretty text underline without clipping descenders.
+		</div>
+
+		<h2>7个实用的CSS技巧</h2>
+		<p><a href="https://juejin.cn/post/7269711361621803045"
+				target="_blank">https://juejin.cn/post/7269711361621803045</a>
+		</p>
+		<h3>首字母样式设置：<span class="letter">My name is omgzui</span></h3>
+		<div class="css-box" style="flex-wrap: wrap;">
+			<h3>透明图像的阴影 Shadow:</h3>
+			<ul class="shadow-css">
+				<li>
+					<h4>box-shadow</h4>
+					<img class="box-pic" src="./images/logo.png" alt="box-shadow example (transparent)">
+				</li>
+				<li>
+					<h4>drop-shadow</h4>
+					<img class="drop-pic" src="./images/logo.png" alt="box-shadow example (transparent)">
+				</li>
+			</ul>
+		</div>
+		<h3>*CSS 和 SVG 实现彩色图片阴影</h3>
+		<p>
+			<a href="https://juejin.cn/post/7329413905029103628"
+				target="_blank">https://juejin.cn/post/7329413905029103628</a>
+		</p>
+		<div class="img-shadow css-box">
+			<dl>
+				<dt>CSS 滤镜实现</dt>
+				<dd>
+					<div class="css-box">
+						<div class="img-css">
+							<img class="cover" src="https://bookcover.yuewen.com/qdbimg/349573/1036370336/180.webp">
+						</div>
+						<div class="img-css img-css2"
+							style="--bg: url('https://bookcover.yuewen.com/qdbimg/349573/1010868264/180.webp')">
+							<img class="cover" src="https://bookcover.yuewen.com/qdbimg/349573/1010868264/180.webp">
+						</div>
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt>SVG 滤镜实现</dt>
+				<svg width="0" height="0">
+					<filter id="natural-shadow-filter">
+						<feOffset dx="10" dy="10"></feOffset>
+						<feGaussianBlur stdDeviation="12"></feGaussianBlur>
+						<feMerge>
+							<feMergeNode></feMergeNode>
+							<feMergeNode in="SourceGraphic"></feMergeNode>
+						</feMerge>
+					</filter>
+				</svg>
+				<dd>
+					<div class="css-box">
+						<div class="img-svg">
+							<img class="cover" src="https://bookcover.yuewen.com/qdbimg/349573/1036370336/180.webp">
+						</div>
+						<div class="img-svg img-svg2"
+							style="--bg: url('https://bookcover.yuewen.com/qdbimg/349573/1010868264/180.webp')">
+							<img class="cover" src="https://bookcover.yuewen.com/qdbimg/349573/1010868264/180.webp">
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<h3>文字的打字效果</h3>
+		<div class="typing">
+			<div class="typing-effect">Typing effect for text</div>
+		</div>
+		<h3>置自定义光标</h3>
+		<div class="card-emoji-cursor">Emoji</div>
+		<h3>纯CSS的清单</h3>
+		<div class="checklist">
+			<label>
+				<input type="checkbox" name="" id="" />
+				<i></i>
+				<span>Item #1</span>
+			</label>
+			<label>
+				<input type="checkbox" name="" id="" />
+				<i></i>
+				<span>Item #2</span>
+			</label>
+			<label>
+				<input type="checkbox" name="" id="" />
+				<i></i>
+				<span>Item #3</span>
+			</label>
+		</div>
+
+		<h2>悬浮渐隐兄弟元素</h2>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/sibling-fade"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/sibling-fade</a></p>
+		<div class="sibling-fade">
+			<span>Item 1</span>
+			<span>Item 2</span>
+			<span>Item 3</span>
+			<span>Item 4</span>
+		</div>
+
+		<h2>流体排版</h2>
+		<p><a href="https://eveningwater.github.io/code-segment/#/codes/css/fluid-typography"
+				target="_blank">https://eveningwater.github.io/code-segment/#/codes/css/fluid-typography</a></p>
+		<style>
+			.fluid-type {
+				font-size: clamp(1rem, 8vw - 2rem, 3rem);
+			}
+		</style>
+		<div class="css-box">
+			<p class="fluid-type">Hello,World!</p>
+		</div>
+
+		<h2>跟随鼠标移动的小飞机</h2>
+		<p><a href="https://juejin.cn/post/7302338286769520692"
+				target="_blank">https://juejin.cn/post/7302338286769520692</a></p>
+
+		<h2>倒计时动画</h2>
+		<p><a href="https://juejin.cn/post/6976134094048624653"
+				target="_blank">https://juejin.cn/post/6976134094048624653</a></p>
+		<div class="count-down-img"></div>
+
+		<h2>渐变边框</h2>
+		<p><a href="https://css-tricks.com/gradient-borders-in-css/"
+				target="_blank">https://css-tricks.com/gradient-borders-in-css/</a></p>
+		<div class="css-box">
+			<div class="border-image">I have a image</div>
+			<button class="border-gradient" style="--g: linear-gradient(to left, #743ad5, #d53a9d);">I have a
+				gradient</button>
+			<button class="border-gradient" style="--g: linear-gradient(to left, #00C853, #B2FF59);">I have a
+				gradient</button>
+			<button class="border-gradient top-only"
+				style="--g: linear-gradient(to left, #00C853, #B2FF59);">Top-Only</button>
+		</div>
+
+		<h2>边框动画</h2>
+		<p><a href="https://juejin.cn/post/7351634327820910602"
+				target="_blank">https://juejin.cn/post/7351634327820910602</a></p>
+		<div class="css-box">
+
+		</div>
+
+		<h2>使用新的 CSS sin() 和 cos() 三角函数创建时钟</h2>
+		<p><a href="https://css-tricks.com/creating-a-clock-with-the-new-css-sin-and-cos-trigonometry-functions/#top-of-site"
+				target="_blank">https://css-tricks.com/creating-a-clock-with-the-new-css-sin-and-cos-trigonometry-functions/#top-of-site</a>
+		</p>
+		<div class="css-box">
+			<div class="clock">
+				<div class="clock-face" id="clockApp">
+					<time datetime="12:00">12</time>
+					<time datetime="1:00">1</time>
+					<time datetime="2:00">2</time>
+					<time datetime="3:00">3</time>
+					<time datetime="4:00">4</time>
+					<time datetime="5:00">5</time>
+					<time datetime="6:00">6</time>
+					<time datetime="7:00">7</time>
+					<time datetime="8:00">8</time>
+					<time datetime="9:00">9</time>
+					<time datetime="10:00">10</time>
+					<time datetime="11:00">11</time>
+					<span class="arm seconds"></span>
+					<span class="arm minutes"></span>
+					<span class="arm hours"></span>
+				</div>
+			</div>
+			<script>
+				const app = document.getElementById("clockApp");
+				const time = new Date();
+				const hour = -3600 * (time.getHours() % 12);
+				const mins = -60 * time.getMinutes();
+				app.style.setProperty('--_dm', `${mins}s`);
+				app.style.setProperty('--_dh', `${(hour + mins)}s`);
+			</script>
+		</div>
+
+		<h2>骨架屏</h2>
+		<p><a href="https://juejin.cn/post/7281162206946721829"
+				target="_blank">https://juejin.cn/post/7281162206946721829</a></p>
+		<div class="skeleton-container"></div>
+
+		<h2>一个无限无缝轮播滚动的通知栏</h2>
+		<a href="https://juejin.cn/post/7280812850823954466"
+			target="_blank">https://juejin.cn/post/7280812850823954466</a>
+		<div class="css-box">
+			<!-- container就是视图容器，这里写死一个高度 -->
+			<div class="scroll-container">
+				<!-- 内容外层容器  -->
+				<ul class="user-list flex flex-col flex-aic">
+					<!-- 内容 -->
+					<li class="flex flex-aic flex-jcc">
+						<div class="flex flex-aic gap-10 w-100p h-100p">
+							<span></span>
+							<span><span style="color: #1A237C"></span></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<script>
+				const data = [
+					{
+						name: "遥遥领先",
+						money: 99999
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					},
+					{
+						name: "大米",
+						money: 7777
+					}
+				];
+				let ulRef = document.querySelector(".user-list"); // 内容外层容器
+				let itemRef = null; // 内容容器
+				let timer = null;
+				let translateY = 0; // 内容外层容器滚动Y轴距离
+				let activeIndex = 0; // 当前最大的活动内容（就是视图容器中显示的第一个内容）
+				let delayed = 1; // 动画持续时间
+
+				// let list =  [];
+				if (data.length) {
+					list = [
+						...data,
+						...data.filter((item, index) => index < 4) // 将最前面的四个内容复制一份放到最后
+					]
+				} else {
+					list = [];
+				}
+
+				let disY = 94;
+				const userStyle = (index) => {
+					let style = {}
+					switch (index) {
+						case activeIndex:
+							style['transform'] = `scale(1)`
+							style['transition'] = `all ${delayed}s`
+							break
+						case activeIndex + 1:
+							style['transform'] = `scale(.9)`
+							style['transition'] = `all ${delayed}s`
+							break
+						case activeIndex + 2:
+							style['transform'] = `scale(.8)`
+							style['transition'] = `all ${delayed}s`
+							break
+						case activeIndex + 3:
+							style['transform'] = `scale(.7)`
+							style['transition'] = `all ${delayed}s`
+							break
+						case activeIndex + 4:
+							// 视图之外第五个内容的样式，这样子动画看起来就不会很突兀
+							style['transform'] = `scale(.6)`
+							style['transition'] = `all ${delayed}s`
+							break
+						default:
+							// 视图容器之外（除了第五个内容）内容样式
+							style['transform'] = `scale(1)`
+							style['transition'] = 'none'
+							break
+					}
+					if (activeIndex === 0) style['transition'] = 'none' // 循环了一轮后，显示了复制前面的四个内容之后
+					return style
+				}
+
+				clearInterval(timer)
+
+				function start() {
+					timer = setInterval(() => {
+						// console.log(activeIndex);
+						if (activeIndex === list.length - 4) {
+							// 循环了一轮之后初始化
+							ulRef.style.transition = 'none';
+							translateY = 0;
+							ulRef.style.transform = `translateY(${translateY}px)`;
+							activeIndex = 0;
+						} else {
+							// 循环轮播
+							ulRef.style.transition = `all ${delayed}s`;
+							translateY -= disY;
+							ulRef.style.transform = `translateY(${translateY}px)`;
+							activeIndex += 1;
+						}
+					}, delayed * 1000);
+				}
+
+				let listStr = '';
+				console.log(list);
+				for (var i = 0; i < list.length; i++) {
+					// console.log(userStyle(i));
+					listStr += `
+						<li>
+							<div id="User${i}" style="transform: ${userStyle(i).transform};transition: ${userStyle(i).transition}">
+								<span>${list[i].name}</span>
+								<span>has placed an enquiry on BetterYou products of <span style="color: #1A237C">${list[i].money}</span>pieces</span>
+							</div >
+						</li>
+					`;
+				}
+				// document.querySelector(".user-list").innerHTML = listStr;
+				// start();
+			</script>
+		</div>
+
+		<h2>浏览器中打开多个摄像头</h2>
+		<p><a href="https://juejin.cn/post/7295750874181058611#heading-1"
+				target="_blank">https://juejin.cn/post/7295750874181058611#heading-1</a></p>
+		<p><a href="https://github.com/tony-xlh/getUserMedia-multiple-camera/tree/main"
+				target="_blank">https://github.com/tony-xlh/getUserMedia-multiple-camera/tree/main</a></p>
+
+		<h2>卡片中图片高度不一致问题</h2>
+		<p><a href="https://juejin.cn/post/7307648485922488374#heading-2"
+				target="_blank">https://juejin.cn/post/7307648485922488374#heading-2</a></p>
+		<div class="css-box">
+			<div class="card">
+				<h3>Card Title</h3>
+				<img src="./images/image-20230513195538118.png" alt="">
+				<div class="card-buttons">
+					<button class="card-button">Button 1</button>
+				</div>
+			</div>
+			<div class="card">
+				<h3>Card Title</h3>
+				<img src="./images/1.jpg" alt="">
+				<div class="card-buttons">
+					<button class="card-button">Button 1</button>
+				</div>
+			</div>
+		</div>
+
+		<h2>时钟翻页效果</h2>
+		<p><a href="https://juejin.cn/post/7244351125448458296"
+				target="_blank">https://juejin.cn/post/7244351125448458296</a></p>
+		<p><a href="https://juejin.cn/post/7149837292452970532?searchId=202401151055077D450DD2BD050FBEDB25"
+				target="_blank">https://juejin.cn/post/7149837292452970532?searchId=202401151055077D450DD2BD050FBEDB25</a>
+		</p>
+		<p><a href="https://juejin.cn/post/7152121035662295053/"
+				target="_blank">https://juejin.cn/post/7152121035662295053/</a></p>
+		<div class="css-box">
+			<div class=" card-container">
+				<div class="card1 card-item">4</div>
+				<div class="card2 card-item">4</div>
+				<div class="card3 card-item">3</div>
+				<div class="card4 card-item">3</div>
+			</div>
+			<div class="time-container">
+				<!-- data-number 用于存储上一次的时间，来和即将改变的时间对比 -->
+				<div class="card-container flip" id="card-h" data-number="00">
+					<div class="card1 card-item">00</div>
+					<div class="card2 card-item">00</div>
+					<div class="card3 card-item">00</div>
+					<div class="card4 card-item">00</div>
+				</div>
+				<div class="card-container flip" id="card-m" data-number="00">
+					<div class="card1 card-item">00</div>
+					<div class="card2 card-item">00</div>
+					<div class="card3 card-item">00</div>
+					<div class="card4 card-item">00</div>
+				</div>
+				<div class="card-container flip" id="card-s" data-number="00">
+					<div class="card1 card-item">00</div>
+					<div class="card2 card-item">00</div>
+					<div class="card3 card-item">00</div>
+					<div class="card4 card-item">00</div>
+				</div>
+				<script>
+					// 获取 dom
+					const hours = document.getElementById("card-h");
+					const minute = document.getElementById("card-m");
+					const second = document.getElementById("card-s");
+
+					function setHTML(dom, time) {
+						// 下一次要显示的时间
+						const nextValue = time.toString().padStart(2, "0");
+						// 上一次的时间
+						const curValue = dom.dataset.number;
+						// 如果下次要显示的时间和上一次的一样，直接退出。比如在同一分钟或同一小时内。
+						if (nextValue === curValue) {
+							return;
+						}
+						// 重置时分秒的 dom
+						dom.innerHTML = `
+						<div class="card1 card-item">${nextValue}</div>
+						<div class="card2 card-item">${nextValue}</div>
+						<div class="card3 card-item">${curValue}</div>
+						<div class="card4 card-item">${curValue}</div>
+					`;
+						// 移除 flip 属性再次添加以触发过渡再次执行
+						dom.classList.remove("flip");
+						dom.clientHeight;
+						dom.classList.add("flip");
+						// 时间不同时重置 dataset.number
+						dom.dataset.number = nextValue;
+					}
+
+					// 获取时分秒并分别设置
+					function setNumbers() {
+						var now = new Date();
+						var h = now.getHours();
+						var m = now.getMinutes();
+						var s = now.getSeconds();
+						setHTML(hours, h);
+						setHTML(minute, m);
+						setHTML(second, s);
+					}
+					setNumbers();
+					// setInterval(setNumbers, 1000);
+				</script>
+			</div>
+		</div>
+
+		<h2>CSS模拟假的数字加载效果</h2>
+		<p><a href="https://juejin.cn/post/7270430481694212108"
+				target="_blank">https://juejin.cn/post/7270430481694212108</a></p>
+		<div class="css-box">
+			<div class="number-loader">
+				<span class="number">0</span>
+			</div>
+		</div>
+
+		<h2>直播点赞喷射表情效果</h2>
+		<p><a href="https://juejin.cn/post/7303463043248291874"
+				target="_blank">https://juejin.cn/post/7303463043248291874</a></p>
+		<div class="like-box" id="like-box">
+			<i class="icon-dianzan iconfont"></i>
+		</div>
+		<script>
+			const likeBox = document.getElementById('like-box')
+			const createFace = function () {
+				const face = Math.floor(Math.random() * 6) + 1;
+				const trajectory = Math.floor(Math.random() * 11) + 1; // bl1~bl11
+				const div = document.createElement('div');
+				div.className = `face${face} trajectory${trajectory}`;
+				// 移除div
+				div.addEventListener("animationend", () => {
+					if (likeBox.contains(div)) {
+						likeBox.removeChild(div)
+					}
+				});
+				return div
+			}
+
+			likeBox.addEventListener('click', function () {
+				const face = createFace()
+				likeBox.appendChild(face)
+			})
+		</script>
+
+		<h3>bubble-floating</h3>
+		<div class="gift_box">
+			VTAG Geschenk <i class="b0"></i><i class="b1"></i><i class="b2"></i><i class="b3"></i>
+		</div>
+		<p><a href="https://juejin.cn/post/7280007176763408420?searchId=20240315162223397F4D24E5933701D3ED"
+				target="_blank">CSS实现气泡发散动画</a></p>
+		<p><a href="https://blog.csdn.net/qq_48085286/article/details/132973555" target="_blank">CSS实现气泡发散动画</a></p>
+		<section class="bubbles-wrap">
+			<div class="bubbles">
+				<span class="bubble" style="--w: 8; --c: #00BABC; --x: 10; --d: 1;"></span>
+				<span class="bubble" style="--w: 9; --c: #009FA4; --x: 50; --d: 2;"></span>
+				<span class="bubble" style="--w: 4; --c: #00FFC0; --x: 30; --d: 3;"></span>
+				<span class="bubble" style="--w: 5; --c: #00BABC; --x: 80; --d: 4;"></span>
+				<span class="bubble" style="--w: 4; --c: #009FA4; --x: 30; --d: 5;"></span>
+				<span class="bubble" style="--w: 4; --c: #00FFC0; --x: 70; --d: 6;"></span>
+				<span class="bubble" style="--w: 6; --c: #00BABC; --x: 20; --d: 5;"></span>
+				<span class="bubble" style="--w: 8; --c: #009FA4; --x: 50; --d: 4;"></span>
+				<span class="bubble" style="--w: 4; --c: #00FFC0; --x: 60; --d: 3;"></span>
+				<span class="bubble" style="--w: 6; --c: #00BABC; --x: 65; --d: 2;"></span>
+			</div>
+		</section>
+		<h4>用 JS 生成</h4>
+		<section class="bubbles-wrap">
+			<div class="bubbles bubbles-create"></div>
+		</section>
+		<script>
+			// 定义一个数组bubbles，用来存储气泡列表的基本新，w表示宽高，x表示绝对定位中left的百分比
+			const bubbles = [
+				{
+					w: 8,
+					x: 10,
+				},
+				{
+					w: 9,
+					x: 50,
+				},
+				{
+					w: 4,
+					x: 30,
+				},
+				{
+					w: 5,
+					x: 80,
+				},
+				{
+					w: 4,
+					x: 30,
+				},
+				{
+					w: 4,
+					x: 70,
+				},
+				{
+					w: 6,
+					x: 20,
+				},
+				{
+					w: 8,
+					x: 50,
+				},
+				{
+					w: 4,
+					x: 60,
+				},
+				{
+					w: 6,
+					x: 65,
+				},
+			];
+
+			// 为每个气泡设置不同的颜色，定义一个颜色数组colors
+			const colors = ["#00BABC", "#009FA4", "#00FFC0"];
+
+			let bubbleStr = '';
+
+			/** 
+				* 根据索引循环取数值的值，取模运算符（%）来实现循环取数组的值
+				* @param {*} array
+				* @param {*} sort
+				* @returns
+			*/
+			const forArrayValue = (array, sort) => {
+				return array[sort % array.length];
+			};
+
+			/* 那么随之而来一个问题，当bubbles数据过多，colors不够用怎么解决？
+					当colors不够用时候，就从colors的第一项继续赋值定义一个循环取值的方法
+			*/
+			// bubbles重新赋值
+			bubbles.forEach((i, index) => {
+				i.c = forArrayValue(colors, index);
+			});
+
+			console.log("🚀 ~ bubbles.forEach ~ bubbles:", bubbles)
+
+			for (let item = 0; item < bubbles.length; item++) {
+				bubbleStr += `
+					<span class="bubble" style="
+						--w: ${bubbles[item].w};
+						--x: ${bubbles[item].x};
+						--c: ${bubbles[item].c};
+						--d: ${parseInt(bubbles.length / 2) + 1 - Math.abs(item - parseInt(bubbles.length / 2))}; 
+					"></span>
+				`;
+			}
+			document.querySelector(".bubbles-create").innerHTML = bubbleStr;
+		</script>
+
+
+		<h2>实现超Q弹按钮</h2>
+		<p><a href="https://juejin.cn/post/7315219036300935220"
+				target="_blank">https://juejin.cn/post/7315219036300935220</a></p>
+		<p><a href="https://codepen.io/boom123bam/pen/Rwvmdmz"
+				target="_blank">https://codepen.io/boom123bam/pen/Rwvmdmz</a></p>
+		<div class="css-box radio-group">
+			<input type="radio" id="Number 1" name="color" value="Number 1" checked />
+			<label for="Number 1">Time</label>
+
+			<input type="radio" id="Number 2" name="color" value="Number 2" />
+			<label for="Number 2">Words</label>
+
+			<input type="radio" id="Number 3" name="color" value="Number 3" />
+			<label for="Number 3">Infinite</label>
+
+			<div class="selection-indicator-wrapper">
+				<span class="selection-indicator"></span>
+			</div>
+		</div>
+
+		<h2>Content Placeholder</h2>
+		<p><a href="https://50projects50days.com/projects/content-placeholder/"
+				target="_blank">https://50projects50days.com/projects/content-placeholder/</a></p>
+		<div class="placeholder-card">
+			<div class="card-header animated-bg" id="header">&nbsp;</div>
+
+			<div class="card-content">
+				<h3 class="card-title animated-bg animated-bg-text" id="title">
+					&nbsp;
+				</h3>
+				<p class="card-excerpt" id="excerpt">
+					&nbsp;
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+					<span class="animated-bg animated-bg-text">&nbsp;</span>
+				</p>
+				<div class="author">
+					<div class="profile-img animated-bg" id="profile_img">&nbsp;</div>
+					<div class="author-info">
+						<strong class="animated-bg animated-bg-text" id="name">&nbsp;</strong>
+						<small class="animated-bg animated-bg-text" id="date">&nbsp;</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const header = document.getElementById('header')
+			const title = document.getElementById('title')
+			const excerpt = document.getElementById('excerpt')
+			const profile_img = document.getElementById('profile_img')
+			const name = document.getElementById('name')
+			const date = document.getElementById('date')
+
+			const animated_bgs = document.querySelectorAll('.animated-bg')
+			const animated_bg_texts = document.querySelectorAll('.animated-bg-text')
+
+			setTimeout(getData, 2500)
+
+			function getData() {
+				header.innerHTML =
+					'<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="" />'
+				title.innerHTML = 'Lorem ipsum dolor sit amet'
+				excerpt.innerHTML =
+					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis'
+				profile_img.innerHTML =
+					'<img src="https://randomuser.me/api/portraits/men/45.jpg" alt="" />'
+				name.innerHTML = 'John Doe'
+				date.innerHTML = 'Oct 08, 2020'
+
+				animated_bgs.forEach((bg) => bg.classList.remove('animated-bg'))
+				animated_bg_texts.forEach((bg) => bg.classList.remove('animated-bg-text'))
+			}
+		</script>
+
+		<h2>Github Profiles</h2>
+		<p><a href="https://50projects50days.com/projects/github-profiles/"
+				target="_blank">https://50projects50days.com/projects/github-profiles/</a></p>
+		<div class="github-file">
+			<form class="user-form" id="form">
+				<input type="text" id="search" placeholder="Search a Github User">
+			</form>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+			integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+			crossorigin="anonymous"></script>
+		<script src="./js/github-file.js"></script>
+
+		<h2>Toast Notification</h2>
+		<p><a href="https://50projects50days.com/projects/toast-notification/"
+				target="_blank">https://50projects50days.com/projects/toast-notification/</a></p>
+		<div class="toasts-box">
+			<div id="toasts" class="toasts-list"></div>
+			<button class="toasts-btn" id="toastsButton">Show Notification</button>
+
+			<script>
+				const toastsBtn = document.getElementById('toastsButton')
+				const toasts = document.getElementById('toasts')
+
+				const messages = [
+					'Message One',
+					'Message Two',
+					'Message Three',
+					'Message Four',
+				]
+
+				const types = ['info', 'success', 'error']
+
+				toastsBtn.addEventListener('click', () => createNotification())
+
+				function createNotification(message = null, type = null) {
+					const notif = document.createElement('div')
+					notif.classList.add('toast')
+					notif.classList.add(type ? type : getRandomType())
+
+					notif.innerText = message ? message : getRandomMessage()
+
+					toasts.appendChild(notif)
+
+					setTimeout(() => {
+						notif.remove()
+					}, 3000)
+				}
+
+				function getRandomMessage() {
+					return messages[Math.floor(Math.random() * messages.length)]
+				}
+
+				function getRandomType() {
+					return types[Math.floor(Math.random() * types.length)]
+				}
+			</script>
+		</div>
+
+		<h2>Double Click Heart</h2>
+		<p><a href="https://50projects50days.com/projects/double-click-heart/"
+				target="_blank">https://50projects50days.com/projects/double-click-heart/</a></p>
+		<div>
+			<div class="loveNum">You liked it <span id="times">25</span> times</div>
+			<div class="loveMe"></div>
+			<script>
+				const loveMe = document.querySelector('.loveMe')
+				const times = document.querySelector('#times')
+
+				let clickTime = 0
+				let timesClicked = 0
+
+				loveMe.addEventListener('click', (e) => {
+					if (clickTime === 0) {
+						clickTime = new Date().getTime()
+					} else {
+						if ((new Date().getTime() - clickTime) < 800) {
+							createHeart(e)
+							clickTime = 0
+						} else {
+							clickTime = new Date().getTime()
+						}
+					}
+				})
+
+				const createHeart = (e) => {
+					const heart = document.createElement('i')
+					heart.classList.add('fas')
+					heart.classList.add('fa-heart')
+
+					const _x = e.clientX
+					const _y = e.clientY
+
+					const leftOffset = e.target.offsetLeft
+					const topOffset = e.target.offsetTop
+
+					// console.log(x)
+					// console.log(leftOffset)
+
+					const xInside = _x - leftOffset
+					const yInside = _x - topOffset
+
+					// console.log(leftOffset)
+
+					heart.style.top = `${xInside}px`
+					heart.style.left = `${xInside}px`
+
+					loveMe.appendChild(heart)
+
+					times.innerHTML = ++timesClicked
+
+					setTimeout(() => heart.remove(), 1000)
+				}
+			</script>
+		</div>
+
+		<h2>echeverra</h2>
+		<p><a href="https://echeverra.cn/" target="_blank">https://echeverra.cn/</a></p>
+		<div class="post-content">
+			<span>文字消失特效</span>
+		</div>
+		<div class="lightbox-overlay">
+			<img src="./images/3.svg" alt="lightbox-overlay">
+		</div>
+		<script>
+			// 文字消失特效
+			$('.post-content').addClass('disappear-text');
+
+			/*文字消失特效*/
+			let textList = $('.disappear-text');
+			for (let i = 0; i < textList.length; i++) {
+				textList[i].innerHTML = textList[i].textContent.replace(/\S/g, "<span>$&</span>");
+			}
+			let span = document.querySelectorAll('.disappear-text span');
+			let lightbox = document.querySelectorAll('.lightbox-overlay');
+			for (let i = 0; i < span.length; i++) {
+				span[i].addEventListener("mouseover", () => {
+					span[i].classList.add('action');
+				})
+			}
+			for (let j = 0; j < lightbox.length; j++) {
+				lightbox[j].addEventListener("mouseover", () => {
+					lightbox[j].classList.add('active');
+				})
+			}
+		</script>
+
+		<h2>10种图像滤镜</h2>
+		<p><a href="https://juejin.cn/post/7329350541137592374#heading-13"
+				rel="noopener noreferrer">https://juejin.cn/post/7329350541137592374#heading-13</a></p>
+		<p><a href="https://juejin.cn/post/7291832566818226195?searchId=202402261420023B80A09DD1E5D2F1E251"
+				target="_blank">Canvas实现一个上传图片截图功能</a></p>
+		<div class="css-box">
+			<div class="clipContainer">
+				<dl>
+					<dt>黑白滤镜</dt>
+					<dd><canvas id="blackWhite" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>灰度滤镜</dt>
+					<dd><canvas id="gray" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>怀旧滤镜</dt>
+					<dd><canvas id="old" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>连环画</dt>
+					<dd><canvas id="comics" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>冷/暖色调</dt>
+					<dd><canvas id="color" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>油画</dt>
+					<dd><canvas id="oilPaint" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>素描滤镜</dt>
+					<dd><canvas id="sketch" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>水彩画滤镜</dt>
+					<dd><canvas id="waterColor" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>马赛克滤镜</dt>
+					<dd><canvas id="mosaic" width="180" height="240"></canvas></dd>
+				</dl>
+				<dl>
+					<dt>模糊滤镜</dt>
+					<dd><canvas id="blur" width="180" height="240"></canvas></dd>
+				</dl>
+			</div>
+		</div>
+		<script>
+			const imageNode = document.createElement('img');
+			// const imageNode = new Image(); 
+			imageNode.crossOrigin = '';
+			// imageNode.src = "https://bookcover.yuewen.com/qdbimg/349573/1036370336/180.webp"
+			imageNode.src = "http://127.0.0.1:5500/module/images/180.webp";
+			const csWidth = 180;
+			const csHeight = 240;
+			// const imageData = ctx.getImageData(0, 0, width, height);
+			// const csdata = imageData.data;
+
+			/* 黑白滤镜 */
+			const blackWhite = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				console.log(imageData);
+				const data = imageData.data;
+				const threshold = 128;
+				for (let i = 0; i < data.length; i += 4) {
+					const gray = (data[i] + data[i + 1] + data[i + 2]) / 3;
+					const binaryValue = gray < threshold ? 0 : 255;
+					data[i] = binaryValue;
+					data[i + 1] = binaryValue;
+					data[i + 2] = binaryValue;
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 灰度滤镜 */
+			const gray = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				for (let i = 0; i < data.length; i += 4) {
+					const red = data[i];
+					const green = data[i + 1];
+					const blue = data[i + 2];
+					const gray = 0.299 * red + 0.587 * green + 0.114 * blue;
+					data[i] = gray;
+					data[i + 1] = gray;
+					data[i + 2] = gray;
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 怀旧滤镜 */
+			const old = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				for (let i = 0; i < data.length; i += 4) {
+					const r = data[i];
+					const g = data[i + 1];
+					const b = data[i + 2];
+					const newRed = 0.393 * r + 0.769 * g + 0.189 * b;
+					const newGreen = 0.349 * r + 0.686 * g + 0.168 * b;
+					const newBlue = 0.272 * r + 0.534 * g + 0.131 * b;
+					data[i] = newRed;
+					data[i + 1] = newGreen;
+					data[i + 2] = newBlue;
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 连环画 */
+			const comics = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				for (let i = 0; i < data.length; i += 4) {
+					const r = data[i];
+					const g = data[i + 1];
+					const b = data[i + 2];
+					const newRed = (Math.abs(g - b + g + r) * r) / 256;
+					const newGreen = (Math.abs(b - g + b + r) * r) / 256;
+					const newBlue = (Math.abs(b - g + b + r) * g) / 256;
+					data[i] = newRed;
+					data[i + 1] = newGreen;
+					data[i + 2] = newBlue;
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 冷/暖色调 */
+			const color = ({ ctx, width, height, value }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				for (let i = 0; i < data.length; i += 4) {
+					const red = data[i];
+					const green = data[i + 1];
+					const blue = data[i + 2];
+					data[i] = Math.max(0, red + value);
+					data[i + 1] = green;
+					data[i + 2] = Math.min(255, blue - value);
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 油画 */
+			const oilPaint = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+
+				const radius = 2; // 滤波半径
+				const levels = 10; // 离散层次数
+
+				for (let y = 0; y < height; y += 1) {
+					for (let x = 0; x < width; x += 1) {
+						const i = (y * width + x) * 4;
+
+						// 计算滤波半径内的颜色平均值
+						let totalRed = 0;
+						let totalGreen = 0;
+						let totalBlue = 0;
+						let count = 0;
+
+						for (let dy = -radius; dy <= radius; dy += 1) {
+							for (let dx = -radius; dx <= radius; dx += 1) {
+								const nx = Math.min(width - 1, Math.max(0, x + dx));
+								const ny = Math.min(height - 1, Math.max(0, y + dy));
+								const ni = (ny * width + nx) * 4;
+
+								totalRed += data[ni];
+								totalGreen += data[ni + 1];
+								totalBlue += data[ni + 2];
+								count += 1;
+							}
+						}
+
+						// 计算平均值并应用到当前像素
+						const avgRed = totalRed / count;
+						const avgGreen = totalGreen / count;
+						const avgBlue = totalBlue / count;
+
+						// 将颜色离散化到指定的层次数
+						const discreteRed =
+							(Math.round((avgRed / 255) * (levels - 1)) / (levels - 1)) * 255;
+						const discreteGreen =
+							(Math.round((avgGreen / 255) * (levels - 1)) / (levels - 1)) * 255;
+						const discreteBlue =
+							(Math.round((avgBlue / 255) * (levels - 1)) / (levels - 1)) * 255;
+
+						data[i] = discreteRed;
+						data[i + 1] = discreteGreen;
+						data[i + 2] = discreteBlue;
+					}
+				}
+
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 素描滤镜 */
+			const sketch = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+
+				for (let i = 0; i < data.length; i += 4) {
+					const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+					const gradient = data[i] - avg;
+
+					// 梯度权重
+					const weight = 1;
+					data[i] = avg + gradient * weight;
+					data[i + 1] = avg + gradient * weight;
+					data[i + 2] = avg + gradient * weight;
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 水彩画滤镜 */
+			const waterColor = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+
+				const radius = 5; // 水彩画效果的半径
+
+				for (let y = 0; y < height; y++) {
+					for (let x = 0; x < width; x++) {
+						let randomX =
+							x + Math.floor(Math.random() * radius) - Math.floor(radius / 2);
+						let randomY =
+							y + Math.floor(Math.random() * radius) - Math.floor(radius / 2);
+
+						// 边界检查
+						randomX = Math.max(0, Math.min(width - 1, randomX));
+						randomY = Math.max(0, Math.min(height - 1, randomY));
+
+						const i = (y * width + x) * 4;
+						const randomI = (randomY * width + randomX) * 4;
+
+						data[i] = data[randomI];
+						data[i + 1] = data[randomI + 1];
+						data[i + 2] = data[randomI + 2];
+						data[i + 3] = data[randomI + 3];
+					}
+				}
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 马赛克滤镜 */
+			const mosaic = ({ ctx, width, height }) => {
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				const blockSize = 10;
+				for (let y = 0; y < height; y += blockSize) {
+					for (let x = 0; x < width; x += blockSize) {
+						const index = (y * width + x) * 4;
+						const red = data[index];
+						const green = data[index + 1];
+						const blue = data[index + 2];
+
+						// 将当前块内的所有像素颜色设置为第一个像素的颜色
+						for (let i = 0; i < blockSize; i++) {
+							for (let j = 0; j < blockSize; j++) {
+								const blockIndex = ((y + i) * width + (x + j)) * 4;
+								data[blockIndex] = red;
+								data[blockIndex + 1] = green;
+								data[blockIndex + 2] = blue;
+							}
+						}
+					}
+				}
+
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			/* 模糊滤镜 */
+			const blur = ({ ctx, width, height }) => {
+				const radius = 10;
+				const generateGaussianKernel = (radius) => {
+					const size = radius * 2 + 1;
+					const kernel = [];
+
+					const sigma = radius / 3;
+					const sigmaSquared = 2 * sigma * sigma;
+
+					let sum = 0;
+
+					for (let i = -radius; i <= radius; i++) {
+						const row = [];
+						for (let j = -radius; j <= radius; j++) {
+							const distanceSquared = i * i + j * j;
+							const weight =
+								Math.exp(-distanceSquared / sigmaSquared) / (Math.PI * sigmaSquared);
+							row.push(weight);
+							sum += weight;
+						}
+						kernel.push(row);
+					}
+
+					// 归一化
+					for (let i = 0; i < size; i++) {
+						for (let j = 0; j < size; j++) {
+							kernel[i][j] /= sum;
+						}
+					}
+
+					return kernel;
+				};
+				const imageData = ctx.getImageData(0, 0, width, height);
+				const data = imageData.data;
+				// 创建一个临时数组来保存原始图像数据
+				const originalData = new Uint8ClampedArray(data);
+				// 计算高斯核心权重
+				const kernel = generateGaussianKernel(radius);
+				for (let y = 0; y < height; y++) {
+					for (let x = 0; x < width; x++) {
+						let sumRed = 0;
+						let sumGreen = 0;
+						let sumBlue = 0;
+
+						for (let i = -radius; i <= radius; i++) {
+							for (let j = -radius; j <= radius; j++) {
+								let currentX = x + j;
+								let currentY = y + i;
+
+								// 边缘检测
+								currentX = Math.min(width - 1, Math.max(0, currentX));
+								currentY = Math.min(height - 1, Math.max(0, currentY));
+
+								let index = (currentY * width + currentX) * 4;
+								let weight = kernel[i + radius][j + radius];
+
+								sumRed += originalData[index] * weight;
+								sumGreen += originalData[index + 1] * weight;
+								sumBlue += originalData[index + 2] * weight;
+							}
+						}
+
+						let currentIndex = (y * width + x) * 4;
+
+						data[currentIndex] = sumRed;
+						data[currentIndex + 1] = sumGreen;
+						data[currentIndex + 2] = sumBlue;
+					}
+				}
+
+				ctx.clearRect(0, 0, width, height);
+				ctx.putImageData(imageData, 0, 0);
+			};
+
+			window.onload = function () {
+
+				const filterArr = ["blackWhite", "gray", "old", "comics", "color", "oilPaint", "sketch", "waterColor", "mosaic", "blur"];
+				for (let i = 0; i < filterArr.length; i++) {
+					const clipCanvas = document.querySelector("#" + filterArr[i]);
+					const clipCanvasCtx = clipCanvas.getContext("2d");
+					clipCanvasCtx.drawImage(imageNode, 0, 0, csWidth, csHeight);
+					switch (filterArr[i]) {
+						case 'blackWhite':
+							blackWhite({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'gray':
+							gray({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'old':
+							old({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'comics':
+							comics({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'color':
+							color({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'oilPaint':
+							oilPaint({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'sketch':
+							sketch({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'waterColor':
+							waterColor({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'mosaic':
+							mosaic({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+						case 'blur':
+							blur({
+								ctx: clipCanvasCtx,
+								width: csWidth,
+								height: csHeight
+							});
+							break;
+					}
+				}
+			};
+		</script>
+
+		<h2>WebCodecs-给视频添加水印</h2>
+		<p><a href="https://juejin.cn/post/7327864528501850123#heading-10" target="_blank"
+				rel="noopener noreferrer">https://juejin.cn/post/7327864528501850123#heading-10</a></p>
+
+		<h2>js判断用户长时间无操作</h2>
+		<p><a href="https://juejin.cn/post/7344670957405405223"
+				target="_blank">https://juejin.cn/post/7344670957405405223</a></p>
+		<script>
+			/**
+				* 页面失活(无操作)
+				* @param {() => void} callback 页面一定时长无操作时触发
+				* @param {number} [timeout=15] 时长，默认15s，单位：秒
+				* @param {boolean} [immediate=false] 是否立即开始，默认 false
+				* @returns
+			*/
+			const pageDeactivated = (callback, timeout = 15, immediate = false) => {
+				let pageTimer;
+				let beginTime = 0;
+
+				/**
+				 * 移除当前延时器，用户后续操作会重新开始计时
+				 */
+				const onClearTimer = () => {
+					pageTimer && clearTimeout(pageTimer);
+					pageTimer = undefined;
+				};
+
+				const onStartTimer = () => {
+					const currentTime = Date.now();
+					if (pageTimer && currentTime - beginTime < 100) {
+						return;
+					}
+
+					onClearTimer();
+					beginTime = currentTime;
+					pageTimer = setTimeout(() => {
+						callback();
+					}, timeout * 1000);
+				};
+
+				const onPageVisibility = () => {
+					// 页面显示状态改变时，移除延时器
+					onClearTimer();
+
+					if (document.visibilityState === 'visible') {
+						const currentTime = Date.now();
+						// 页面显示时，计算时间，如果超出限制时间则直接执行回调函数
+						if (currentTime - beginTime >= timeout * 1000) {
+							callback();
+							return;
+						}
+						// 继续计时
+						pageTimer = setTimeout(() => {
+							callback();
+						}, timeout * 1000 - (currentTime - beginTime));
+					}
+				};
+
+				const onStartDeactivated = () => {
+					onStartTimer();
+					document.addEventListener('mousedown', onStartTimer);
+					document.addEventListener('mousemove', onStartTimer);
+					document.addEventListener('visibilitychange', onPageVisibility);
+				};
+
+				const onStopDeactivated = () => {
+					onClearTimer();
+					document.removeEventListener('mousedown', onStartTimer);
+					document.removeEventListener('mousemove', onStartTimer);
+					document.removeEventListener('visibilitychange', onPageVisibility);
+				};
+
+				if (immediate) {
+					onStartDeactivated();
+				}
+
+				return {
+					onStartDeactivated,
+					onStopDeactivated,
+					onClearTimer
+				};
+			};
+
+			pageDeactivated(function () {
+				console.log("🚀 ~ timeout:", "3s End == 执行代码");
+			}, 3, true)
+
+		</script>
+
+		<h2>Bubbles Gather</h2>
+		<p><a href="https://codepen.io/marcus-nightingale/pen/WNWXWoy"
+				target="_blank">https://codepen.io/marcus-nightingale/pen/WNWXWoy</a></p>
+		<p>
+			<a href="https://codepen.io/adamcurzon/pen/YzMELeQ"
+				target="_blank">https://codepen.io/adamcurzon/pen/YzMELeQ</a>
+		</p>
+		<p>
+			<a href="https://codepen.io/leimapapa/pen/MWRrYvR"
+				target="_blank">https://codepen.io/leimapapa/pen/MWRrYvR</a>
+		</p>
+		<div class="bubble__one">
+			<!-- &#10074;&#10074; -->
+			<button id="bubbleButton">►</button>
+		</div>
+		<script>
+			var isSpawning = true;
+			var spawnIntervals = [];
+
+			document.addEventListener("DOMContentLoaded", function () {
+				// startSpawningBubbles();
+			});
+
+			document.getElementById("bubbleButton").addEventListener("click", function () {
+				isSpawning = !isSpawning;
+
+				if (isSpawning) {
+					this.innerHTML = "&#10074;&#10074;";
+					startSpawningBubbles();
+				} else {
+					this.innerHTML = "&#9658;";
+					stopSpawningBubbles();
+				}
+			});
+
+			function spawnBubble() {
+				var bubble = document.createElement("div");
+				bubble.classList.add("bubble__one_item");
+
+				var size = Math.random() * (20 - 10) + 10;
+				bubble.style.width = `${size}px`;
+				bubble.style.height = `${size}px`;
+
+				var colorClass = "bubble-color-" + (Math.floor(Math.random() * 5) + 1);
+				bubble.classList.add(colorClass);
+
+				bubble.style.setProperty(
+					"--randX",
+					`${Math.random() * window.innerWidth - window.innerWidth / 2}px`
+				);
+				bubble.style.setProperty("--scaleEnd", `${Math.random() * (1.2 - 0.8) + 0.8}`);
+
+				var button = document.getElementById("bubbleButton");
+				var btnRect = button.getBoundingClientRect();
+
+				bubble.style.left = `${btnRect.left + btnRect.width / 2 - size / 2}px`;
+				bubble.style.bottom = `80px`;
+
+				document.body.appendChild(bubble);
+				//document.querySelector(".bubble__one").appendChild(bubble);
+				bubble.style.animation = `bubbleMove 3s linear forwards`;
+
+				setTimeout(function () {
+					bubble.remove();
+				}, 3000);
+			}
+
+			function startSpawningBubbles() {
+				for (let i = 0; i < 3; i++) {
+					let interval = setInterval(spawnBubble, 100);
+					spawnIntervals.push(interval);
+				}
+			}
+
+			function stopSpawningBubbles() {
+				spawnIntervals.forEach(clearInterval);
+				spawnIntervals = [];
+			}
+		</script>
+
+		<h3>Party Bubbles</h3>
+		<div class="bubble__two party__bubbles" id="partyBubbles"></div>
+		<script>
+			var bubbleSize = 50;
+			var bubbleInterval = 300;
+			var currentBubbleInterval = bubbleInterval;
+			var bubbleCanSpawn = true;
+
+			var isPartyMode = false;
+			var partyModeBubbleInterval = 50;
+			var partyModeTime = 5000;
+
+			const Bubble = class {
+				constructor(x, y) {
+					this.bubbleSize = Math.floor(Math.random() * (80 - 50 + 1)) + 50;
+					this.x = x - this.bubbleSize / 2;
+					this.y = y - this.bubbleSize / 2;
+					this.life = Math.random() * 6 + 2;
+
+					this.bubble = document.createElement("div");
+					this.bubble.classList.add("party__bubble");
+					this.bubble.style.width = this.bubbleSize + "px";
+					this.bubble.style.height = this.bubbleSize + "px";
+					this.bubble.style.animationDuration = this.life + "s";
+
+					this.shine = document.createElement("div");
+					this.shine.classList.add("bubble-shine");
+					this.shine.style.top = this.bubbleSize * 0.2 + "px";
+					this.shine.style.left = this.bubbleSize * 0.15 + "px";
+					this.bubble.appendChild(this.shine);
+
+					this.bubbleHolder = document.createElement("div");
+					this.bubbleHolder.classList.add("bubble-holder");
+					this.bubbleHolder.style.left = this.x + "px";
+					this.bubbleHolder.style.top = this.y + "px";
+					this.bubbleHolder.appendChild(this.bubble);
+				}
+
+				draw() {
+					// document.body.appendChild(this.bubbleHolder);
+					document.getElementById('partyBubbles').appendChild(this.bubbleHolder);
+				}
+
+				pop() {
+					// document.body.removeChild(this.bubbleHolder);
+					document.getElementById('partyBubbles').removeChild(this.bubbleHolder);
+				}
+
+				darken() {
+					this.bubbleHolder.style.opacity = Math.random() / 2;
+				}
+
+				explode() {
+					this.bubble.classList.add("bubble-explode");
+				}
+
+				randomColor() {
+					this.bubble.style.borderColor =
+						"hsla(" +
+						((this.x + this.y) / (window.innerHeight + window.innerWidth)) * 720 +
+						", 100%, 50%, 1)";
+				}
+			};
+
+			// Background bubbles
+			setInterval(() => {
+				let newBubble = new Bubble(
+					Math.floor(Math.random() * window.innerWidth),
+					Math.floor(Math.random() * window.innerHeight)
+				);
+
+				if (isPartyMode) {
+					newBubble.randomColor();
+				}
+
+				newBubble.darken();
+				newBubble.draw();
+
+				setTimeout(() => {
+					newBubble.pop();
+				}, newBubble.life * 1000);
+			}, currentBubbleInterval);
+
+			document.getElementById('partyBubbles').addEventListener("mousemove", function (e) {
+				e.stopPropagation()
+				if (!bubbleCanSpawn) {
+					return;
+				}
+				bubbleCanSpawn = false;
+
+				let newBubble = new Bubble(e.clientX, e.clientY);
+
+				if (isPartyMode) {
+					newBubble.randomColor();
+				}
+
+				newBubble.draw();
+
+				setTimeout(() => {
+					newBubble.pop();
+				}, newBubble.life * 1000);
+
+				setTimeout(() => {
+					bubbleCanSpawn = true;
+				}, currentBubbleInterval);
+			});
+
+			// document.addEventListener("click", () => {
+			document.getElementById('partyBubbles').addEventListener("click", (e) => {
+				e.stopPropagation()
+				if (isPartyMode) {
+					return;
+				}
+
+				currentBubbleInterval = partyModeBubbleInterval;
+				isPartyMode = true;
+
+				setTimeout(() => {
+					isPartyMode = false;
+					currentBubbleInterval = bubbleInterval;
+				}, partyModeTime);
+			});
+		</script>
+
+		<h3>bubble mouse</h3>
+		<div class="bubble__three mouse__bubbles"></div>
+		<!-- <script>
+			const randInt = (min, max) => {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			function bubble(e) {
+				let mouseX, mouseY;
+				let event = e;
+				if (!e) {
+					event = window.event;
+					mouseX = window.innerWidth / 2;
+					mouseY = window.innerHeight / 2;
+				}
+				if (event && (event.pageX || event.pageY)) {
+					mouseX = event.pageX;
+					mouseY = event.pageY;
+				}
+				else if (event && (event.clientX || event.clientY)) {
+					mouseX = event.clientX + document.body.scrollLeft
+						+ document.documentElement.scrollLeft;
+					mouseY = event.clientY + document.body.scrollTop
+						+ document.documentElement.scrollTop;
+				}
+				let pp = '';
+				let fadeOut = randInt(1500, 2500);
+				for (let i = 0; i < randInt(1, 2); i++) {
+					let x = 50;
+					let y = 55;
+					let w = randInt(5, 15);
+					let h = randInt(2, 10);
+					let d1 = `M ${x} ${y} q ${randInt(w / 1.1, w / 8)} ${h} ${w} 0`;
+					let d2 = `M ${x} ${y + randInt(0, h)} q ${randInt(w / 10, w / 1.1)} -${h} ${w} 0`;
+					let rot = randInt(0, 360);
+					let sw = randInt(50, 100) / 200;
+					let p = `<g transform="rotate(${randInt(0, 360)} 50 50)">
+						<circle cx="50" cy="50" r="2" stroke="rgba(130, ${randInt(130, 175)}, ${randInt(130, 155)}, 0.8)" stroke-width="${sw}" fill="url(#grad)">
+						<animate attributeName="r" values="${randInt(0, 2)}; ${w}" dur="${fadeOut}ms" begin="0s" repeatCount="none" fill="freeze"  keyTimes="0;1" keySplines="${randInt(0, 100) / 100} ${randInt(0, 100) / 100} ${randInt(0, 100) / 100} ${randInt(0, 100) / 100}" calcMode="spline" />
+						<animateTransform attributeName="transform" attributeType="XML" type="rotate" values="${rot} ${x} ${y}; ${rot} ${x} ${y + randInt(5, 15)}" dur="${fadeOut}ms" begin="0s" fill="freeze" repeatCount="none" />
+						<animate attributeName="opacity" values="1; 1; 1; 1; 0; 0" dur="${fadeOut}ms" begin="0s" fill="freeze" repeatCount="none" />
+					</g>`;
+					pp += p;
+				}
+				const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+				svg.setAttribute("viewBox", "0 0 100 100");
+				svg.setAttribute("style", `width: 100%; height: 100%; position: fixed; height: 150px; width: 150px; transform: translate(-50%,-50%); left: ${mouseX}px; top: ${mouseY}px; z-index: 99999`);
+				svg.innerHTML = `<radialGradient id="grad">
+					<stop offset="50%" stop-color="rgba(255,255,255,0)" />
+ 					<stop offset="100%" stop-color="rgba(255,255,255,0.5)" />
+					</radialGradient>${pp}`;
+				svg.classList.add('c');
+				svg.setAttribute('animation-duration', `${fadeOut + 1000}ms !important`);
+				document.body.appendChild(svg);
+				setTimeout(() => { svg?.remove(); }, fadeOut);
+			}
+			document.addEventListener("mousemove", (event) => { 
+				event.stopPropagation()
+				bubble(event) 
+			});
+			document.addEventListener("touchmove", (event) => { bubble(event) });
+			for (let i = 0; i < 20; i++) {
+				bubble();
+			}
+		</script> -->
+
+		<h2>数字增加动画 (React)</h2>
+		<p><a href="https://codepen.io/jh3y/pen/jOdrNLL" target="_blank">https://codepen.io/jh3y/pen/jOdrNLL</a></p>
+		<div class="reduce__num">
+			<div id="reduceNumApp"></div>
+			<div id="root"></div>
+		</div>
+		<!--react js下载路径-->
+		<script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js" crossorigin></script>
+		<!--babel.min.js下载路径-->
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script type="text/babel">/*此处必须写babel*/
+			//1.创建虚拟DOM
+			const VDOM = <h1>Hello React</h1>;
+			//2.渲染到页面
+			// ReactDOM.render(VDOM, document.getElementById("reduceNumApp"));
+			console.log("🚀 ~ React ~ React:", React)
+
+
+			const { render, flushSync } = ReactDOM;
+			const Counter = () => {
+				const [count, setCount] = React.useState(0);
+
+				const increment = () => {
+					if (!document.startViewTransition)
+						return setCount(count + 1)
+					document.startViewTransition(() => {
+						flushSync(() => {
+							setCount(count + 1)
+						})
+					})
+				};
+
+				return (
+					<>
+						<div className="count">{count}</div>
+						<button class="reduce-button" onClick={increment}>Increment</button>
+					</>
+				);
+			}
+
+			// 创建一个简单的函数式组件
+			const MyComponent = () => {
+				return <h1>Hello, React!</h1>;
+			};
+
+			// ReactDOM.render(MyComponent(), document.querySelector('#reduceNumApp'))
+			render(<Counter />, document.querySelector('#reduceNumApp'))
+		</script>
+		<script type="text/babel">
+			// 使用React和ReactDOM创建根元素
+			const rootElement = document.getElementById('root');
+			const { createRoot } = ReactDOM; // 引入ReactDOM的createRoot方法（如果需要使用新版本的API）
+			createRoot(rootElement).render(<YourComponent />); // 渲染你的组件到根元素中
+			// 使用useState Hook的函数组件示例
+			function YourComponent() {
+				// 使用useState创建一个名为count的状态变量和一个更新该状态的函数setCount
+				const [count, setCount] = React.useState(0); // 初始状态为0
+				return (
+					<div>
+						<p>当前计数：{count}</p>
+						<button onClick={() => setCount(count + 1)}>增加计数</button>
+					</div>
+				);
+			} // YourComponent组件会显示一个计数和一个按钮，点击按钮会增加计数。这是通过使用useState Hook实现的。
+			render(<YourComponent />, document.querySelector('#root'))
+		</script>
+
+		<!-- <script type="text/babel">
+			// import React from "https://cdn.skypack.dev/react";
+			// import { render, flushSync } from "https://cdn.skypack.dev/react-dom";
+			// import babel from "https://cdn.skypack.dev/babel";
+
+			// console.clear()
+
+				console.log("🚀 ~ React ~ React:", render)
+
+			const Counter = () => {
+				const [count, setCount] = React.useState(0);
+
+				const increment = () => {
+					if (!document.startViewTransition)
+						return setCount(count + 1)
+					document.startViewTransition(() => {
+						flushSync(() => {
+							setCount(count + 1)
+						})
+					})
+				};
+
+				return (
+					<>
+						<div className="count">{count}</div>
+						<button onClick={increment}>Increment</button>
+					</>
+				);
+			}
+			
+			// render(<Counter />, document.querySelector('#reduceNumApp'))
+		</script> -->
+
+		<h2>css动画添加间隔</h2>
+		<p><a href="https://juejin.cn/post/7358028068769316915"
+				target="_blank">https://juejin.cn/post/7358028068769316915</a></p>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<style>
+			#testAnimation {
+				font-weight: 700;
+				font-size: 46px;
+				line-height: 1.5;
+				animation-play-state: paused;
+			}
+		</style>
+		<div id="testAnimation" class="animate__animated animate__rubberBand">This is a simple animation!</div>
+		<script>
+			const testDom = document.getElementById('testAnimation')
+			function setAnimateInterval(target, intervalTime) {
+				// 单位转毫秒
+				intervalTime = intervalTime * 1000
+				// 获取动画时间
+				let durationTime = window.getComputedStyle(target).getPropertyValue('animation-duration');
+				// 去掉单位转换为数字
+				durationTime = new Number(durationTime.replaceAll('s', '')) * 1000
+				// 设置动画时间
+				const startTime = new Date().getTime();
+				window.requestAnimationFrame(function animate() {
+					const currentTime = new Date().getTime();
+					const time = (currentTime - startTime) % (intervalTime + durationTime)
+					// 判断是处于动画时间内还是间隔时间内
+					if (time <= durationTime) {
+						const percent = time / durationTime;
+						target.style.animationDelay = `-${percent}s`;
+					}
+					window.requestAnimationFrame(animate);
+				});
+			}
+			setAnimateInterval(testDom, 6)
+		</script>
+
+		<h2>autolog.js</h2>
+		<p>
+			<a href="https://github.com/LarryZhu-dev/autolog.js" target="_blank">autolog.js 一款轻量化小弹窗插件</a>
+		</p>
+		<div>
+			<button class="success" onclick="module.showLog('success')">
+				成功
+			</button>
+			<script>
+				const module = {};
+			</script>
+			<script type="module">
+				import autolog from "./js/autolog.js";
+				function showLog(logType) {
+					radomEgg();
+					// let text = document.getElementById("text").value;
+					// let time = document.getElementById("time").value;
+					let text = "";
+					let time = "";
+					autolog.log(text || "Hello World", logType || "", time || 2500);
+				}
+				function radomEgg() {
+					let radomNumber1to100 = Math.floor(Math.random() * 100 + 1);
+					if (radomNumber1to100 > 99) {
+						for (let i = 0; i < radomNumber1to100; i++) {
+							let radomText = Math.floor(Math.random() * 3);
+							setTimeout(() => {
+								autolog.log(EggTexts[radomText], "info", 2500);
+							}, 10 * i);
+						}
+					}
+				}
+				module.showLog = showLog;
+			</script>
+		</div>
+
+		<h2>VUE React table 集合</h2>
+		<p><a href="https://vxetable.cn/#/table/scroll/edit" target="_blank">vxe-table</a></p>
+		<p><a href="https://virtuoso.dev/" target="_blank">virtuoso</a></p>
+		<p><a href="https://ant-design.antgroup.com/components/table-cn?from=msidevs.net" target="_blank">Ant Design
+				Table</a></p>
+		<p><a href="https://tanstack.com/table/v8/docs/framework/react/examples/virtualized-rows" target="_blank">React
+				Table</a></p>
+		<p><a href="https://blog.csdn.net/weixin_48201324/article/details/123650682" target="_blank">6 个 React Table
+				组件</a></p>
+
+	</main>
+
+	<script>
+		//鼠标特效
+		new bubbleCursor();
+	</script>
+
+	<script type="module">
+		// const catDay = Temporal.Instant.from('2024-08-08T10:24:00+01:00');
+		// console.log("🚀 ~ catDay:", catDay)
+	</script>
+
+</body>
+
+</html>
