@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游动的小鱼</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <style>
+        body {
+             color: #fff;
+                background: #000;
+        }
+        @media only screen and (max-width: 767px) {
+            #sidebar_search_box input[type=text] {
+                width: calc(100% - 24px)
+            }
+        }
+    
+        #jsi-flying-fish-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <h1>游动的小鱼</h1>
+    <p><a href="https://www.cnblogs.com/houxianzhou" target="_blank">https://www.cnblogs.com/houxianzhou</a></p>
+
+    <div id="jsi-flying-fish-container" class="container"><canvas width="1903" height="153.953"></canvas></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 底部加了小鱼<・)))><<~ -->
+    <script src="./js/fish.js"></script>
+    <!--点击冒点-->
+    <script src="./js/mouse-click.js"></script>
+</body>
+</html>
