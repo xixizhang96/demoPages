@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>根据图片提取相似色背景</title>
+    <link href="https://github.com/Fridolph/my-program/tree/master/public/canvas/colorful-gallery/static/css/app.fbb4edc9c1663e3e7b15.css" rel="stylesheet">
+</head>
+
+<body><a style="position: absolute; top: 0; right: 0; border: 0;" href="https://github.com/Fridolph/my-program"><img
+            src="https://fridolph.github.io/my-program/views/img/forkme.png" alt="Fork me on GitHub"
+            data-canonical-src="https://fridolph.github.io/my-program/views/img/forkme.png"></a>
+    <div id=app></div>
+
+    <script type=text/javascript src="https://github.com/Fridolph/my-program/tree/master/public/canvas/colorful-gallery/static/static/js/manifest.6da3dcf75c796ce0cd4c.js"></script>
+    <script type=text/javascript src="https://github.com/Fridolph/my-program/tree/master/public/canvas/colorful-gallery/static/static/js/1.5d4016d591c0dcbc4e61.js"></script>
+    <script type=text/javascript src="https://github.com/Fridolph/my-program/tree/master/public/canvas/colorful-gallery/static/static/js/2.b6ef973fc3d78e3f78eb.js"></script>
+
+    <p><a href="https://hubingliang.github.io/colorfulImg/dist/" target="_blank">colorfulImg</a></p>
+    <p><a href="https://fridolph.github.io/my-program/public/canvas/colorful-gallery/index.html#/" target="_blank">colorful-gallery</a></p>
+    <script>
+        function getMostCommonColor(imgEl) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = imgEl.width;
+                canvas.height = imgEl.height;
+                ctx.drawImage(imgEl, 0, 0);
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const data = imageData.data;
+                const map = {};
+                let maxCount = 0;
+                let mostCommonColor = null;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const color = `${data[i]},${data[i + 1]},${data[i + 2]}`;
+                    map[color] = (map[color] || 0) + 1;
+                    if (map[color] > maxCount) {
+                        maxCount = map[color];
+                        mostCommonColor = color;
+                    }
+                }
+
+                return mostCommonColor;
+            }
+
+            // 使用方法：
+            const img = new Image();
+            img.src = 'https://fastly.picsum.photos/id/243/580/600.jpg?hmac=IU-PEi8UcsZgtvIhDPvU4JTCyj6GzecJMG8E5_y05_8'; // 替换为你的图片路径
+            img.onload = () => {
+                const commonColor = getMostCommonColor(img);
+                console.log('相似背景色:', commonColor);
+            };
+    </script>
+</body>
+
+</html>
